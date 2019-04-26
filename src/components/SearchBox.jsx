@@ -4,13 +4,15 @@ import * as actions from "./../actions/actions";
 import { connect } from "react-redux";
 
 const mapDispatchToProps = dispatch => ({
-  changeInput: input => dispatch(actions.changeInput(input))
+  changeInput: input => dispatch(actions.changeInput(input)),
+  setCurrentPage: data => dispatch(actions.setCurrentPage(data))
 });
 
-const SearchBar = ({ changeInput }) => {
+const SearchBar = ({ changeInput, setCurrentPage }) => {
   const handleChange = event => {
     event.preventDefault();
     changeInput(event.target.value);
+    setCurrentPage(1);
   };
   return (
     <form>
