@@ -5,6 +5,7 @@ import NewsHeadlines from "./components/NewsHeadlines";
 import SearchBox from "./components/SearchBox";
 import Link from "@material-ui/core/Link";
 import "./App.css";
+const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 const mapDispatchToProps = dispatch => ({
   setData: data => dispatch(actions.setData(data))
@@ -14,7 +15,7 @@ class App extends Component {
   componentDidMount() {
     const { setData } = this.props;
     fetch(
-      "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=124dbba1134c4f38b360ec691055ea73"
+      `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${NEWS_API_KEY}`
     )
       .then(response => response.json())
       .then(data => {
