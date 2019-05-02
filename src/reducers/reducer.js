@@ -8,7 +8,6 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   const stateCopy = { ...state };
-  // const { type, payload } = action;
   switch (type) {
     case types.CHANGE_INPUT:
       stateCopy.searchInput = payload;
